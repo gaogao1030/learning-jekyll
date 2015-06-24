@@ -17,3 +17,5 @@ timezone: '+0800'
 permalink: '/:categories/:year/:month/:day/:title'
 
 keep_files: [".git","CNAME",".nojekyll"]
+
+paginate: 10

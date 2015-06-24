@@ -1,16 +1,35 @@
 ---
 layout: default
 ---
-<div class="post">
-
+<article class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <h1 class="post-title">
+      <a href="{{ page.url | prepend: site.baseurl }}">{{page.title }}</a>
+    </h1>
+    <p class="post-meta">{{ page.date | date: "%Y年%-mi月%-d日" }}</p>
   </header>
-
-  <article class="post-content">
+  <div class="post-content">
     {{ content }}
-  </article>
+  </div>
+</article>
+{% if page.previous or page.next %}
 
-  {% include disqus.html %}
-</div>
+<nav>
+  <ul class="pager">
+    {% if page.previous %}
+    <li class="previous">
+    <a rel="prev" href="{{ page.previous.url | prepend: site.baseurl }}"
+      title="{{ page.previous.title | escape }}">&laquo;前一篇</a>
+    </li>
+    {% endif %}
+    {% if page.next %}
+    <li class="next">
+    <a rel="next" href="{{ page.next.url | prepend: site.baseurl }}"
+      title="{{ page.next.title | escape }}">后一篇 &raquo;</a> }}"  }}"
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+{% include disqus.html %}

@@ -4,20 +4,35 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">最新文章</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
 
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
       </li>
     {% endfor %}
+    <nav>
+      <ul class="pager">
+        {% if paginator.previous_page %}
+        <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace:'/index.html', '/' }}" >
+          &laquo;上一页</a>
+        </li>
+        {% endif %}
+        {% if paginator.next_page %}
+        <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">
+          下一页 &raquo;</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
