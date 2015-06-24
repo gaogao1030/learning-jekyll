@@ -12,5 +12,9 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+kramdown:
+  syntax_highlighter: 'rouge'
 
-permalink: '/:title'
+timezone: '+0800'
+permalink: '/:categories/:year/:month/:day/:title'
+
