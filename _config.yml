@@ -19,3 +19,8 @@ permalink: '/:categories/:year/:month/:day/:title'
 keep_files: [".git","CNAME",".nojekyll"]
 
 paginate: 10
+jekyll-archives:
+  enabled: all
+
+gems:
+  - jekyll-archives

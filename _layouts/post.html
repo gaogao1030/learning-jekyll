@@ -6,7 +6,7 @@ layout: default
     <h1 class="post-title">
       <a href="{{ page.url | prepend: site.baseurl }}">{{page.title }}</a>
     </h1>
-    <p class="post-meta">{{ page.date | date: "%Y年%-mi月%-d日" }}</p>
+    <p class="post-meta">{{ page.date | date: "%Y年%-mi月%-d日" }}{{ page.categories | category_links }}</p>
   </header>
   <div class="post-content">
     {{ content }}
